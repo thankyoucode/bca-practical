@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" %>
+<html>
+<head runat="server">
+    <title>Smart Indian Hackathon</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <form runat="server">
+        <asp:Menu runat="server" ForeColor="White" Orientation="Horizontal" Width="100%"  class="header">
+            <Items>
+                <asp:MenuItem value="Home" NavigateUrl="~/Home.aspx"></asp:MenuItem>
+                <asp:MenuItem value="About" NavigateUrl="~/About.aspx"></asp:MenuItem>
+                <asp:MenuItem value="Contect" NavigateUrl="~/Contect.aspx"></asp:MenuItem>
+            </Items>
+        </asp:Menu>
+        <main>
+        <asp:ContentPlaceHolder ID="Main" runat="server"></asp:ContentPlaceHolder>
+        </main>
+    </form>
+</body>
+</html>

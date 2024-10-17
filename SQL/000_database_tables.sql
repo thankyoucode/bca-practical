@@ -1,0 +1,65 @@
+DROP DATABASE IF EXISTS `shop_management`;
+CREATE DATABASE `shop_management`;
+USE `shop_management`;
+
+SET NAMES utf8 ;
+SET character_set_client = utf8mb4 ;
+
+
+-- -- Creating table for `Salesman`
+DROP TABLE IF EXISTS `Salesman`;
+CREATE TABLE `Salesman` (
+	SNUM numeric(4) PRIMARY KEY,
+    SNAME varchar(30),
+    CITY varchar(30),
+    `COMMISSION( % )` numeric(2)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `Salesman` VALUES (1001, 'PIYUSH', 'LONDON', 12);
+INSERT INTO `Salesman` VALUES (1002, 'NIRAJ', 'SURAT', 13);
+INSERT INTO `Salesman` VALUES (1003, 'MITI', 'SURAT', 11);
+INSERT INTO `Salesman` VALUES (1004, 'RAJESH', 'BARODA', 15);
+INSERT INTO `Salesman` VALUES (1005, 'ANAND', 'NEW DELHI', 10);
+INSERT INTO `Salesman` VALUES (1006, 'RAM', 'PATAN', 10);
+INSERT INTO `Salesman` VALUES (1007, 'LAXMAN', 'BOMBAY', 09);
+
+
+-- -- Creating table for `Customer`
+DROP TABLE IF EXISTS `Customer`;
+CREATE TABLE `Customer` (
+	CNUM numeric(4) PRIMARY KEY,
+    CNAME varchar(30),
+    CITY varchar(30),
+    RATING numeric(4),
+    SNUM numeric(4) REFERENCES `Salesman`
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `Customer` VALUES (2001, 'HARDIK', 'LONDON', 100, 1001);
+INSERT INTO `Customer` VALUES (2002, 'GITA', 'ROME', 200, 1003);
+INSERT INTO `Customer` VALUES (2003, 'LAXIT', 'SURAT', 200, 1002);
+INSERT INTO `Customer` VALUES (2004, 'GOVIND', 'BOMBAY', 300, 1002);
+INSERT INTO `Customer` VALUES (2005, 'CHANDU', 'LONDON', 100, 1001);
+INSERT INTO `Customer` VALUES (2006, 'CHAMPAK', 'SURAT', 300, 1007);
+INSERT INTO `Customer` VALUES (2007, 'PRATIK', 'ROME', 100, 1004);
+
+
+-- Creating table for `Order`
+DROP TABLE IF EXISTS `Order`;
+CREATE TABLE `Order` (
+	ONUM numeric(4) PRIMARY KEY,
+    AMOUNT float,
+    ODATE date,
+    CNUM numeric(4) REFERENCES `Costomer`,
+    SNUM numeric(4) REFERENCES `Salesman`
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `Order` VALUE (3001, 18.69, '1999-03-10', 2006, 1007);
+INSERT INTO `Order` VALUE (3002, 767.19, '1999-03-10', 2001, 1001);
+INSERT INTO `Order` VALUE (3003, 1900.10, '1999-03-10', 2007, 1004);
+INSERT INTO `Order` VALUE (3004, 5160.45, '1999-03-10', 2003, 1002);
+INSERT INTO `Order` VALUE (3005, 1098.25, '1999-04-10', 2006, 1007);
+INSERT INTO `Order` VALUE (3006, 1713.12, '1999-04-10', 2002, 1003);
+INSERT INTO `Order` VALUE (3007, 75.75, '1999-05-10', 2004, 1002);
+INSERT INTO `Order` VALUE (3008, 4723.00, '1999-05-10', 2005, 1001);
+INSERT INTO `Order` VALUE (3009, 75.75, '1999-05-10', 2004, 1002);
+INSERT INTO `Order` VALUE (3010, 9898.87, '1999-06-10', 2001, 1001);

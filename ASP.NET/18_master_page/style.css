@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: fit-content;
+  margin: auto;
+}
+
+header,
+footer {
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  background: rgb(122, 172, 202);
+}
+
+header 
+{
+    display: flex;
+    gap: 20px;
+}

@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #ede8f5;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  width: fit-content;
+  background: #adbbda;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.input-fild-data {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 4px 0;
+}
+
+.input-fild-data > input,
+.input-fild-data > div,
+.input {
+  margin-left: 20px;
+}
+
+.hoby-items {
+  display: flex;
+  flex-direction: column;
+}
+
+Lable {
+  color: rgb(53, 53, 53);
+  font-weight: 500;
+}
+
+.hoby-items > p {
+  height: fit-content;
+  margin: 2px 0;
+}
+.hoby-items > p > input {
+  margin-right: 10px;
+  height: fit-content;
+  width: fit-content;
+}
+
+input,
+.input {
+  margin-top: 5px;
+  padding: 6px;
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  border: 2px solid #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+.input:focus {
+  border-color: #3498db; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Optional shadow effect */
+}
+.btn {
+  border: none;
+  padding: 8px;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-reset {
+  background: #ff7676;
+}
+.btn-submit {
+  background: #769bff;
+}
+.btn:hover {
+  box-shadow: #333 0 2px 4px 0;
+}
+
+/* styles.css for output styling */
+.result-container {
+  font-family: Arial, sans-serif;
+  color: #333;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.result-container h2 {
+  color: #2c3e50;
+}
+
+.result-container p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.result-container strong {
+  color: #2980b9;
+}
+
+table {
+  margin: 20px;
+  padding: 2px;
+  border-radius: 4px;
+  background: #9cabc9;
+}
+
+tr > th,
+tr > td {
+  border-radius: 2px;
+  padding: 5px 8px;
+}
+tr > th {
+  background: #adbbda;
+}
+
+tr > td {
+  background: #dde8ff;
+}
+tr > td:hover {
+  background: #ffffff;
+}
+
+#DataList {
+  max-width: 100vw;
+}

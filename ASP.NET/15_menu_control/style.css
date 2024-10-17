@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: fit-content;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.header {
+  width: 100vw;
+  padding: 20px 0;
+  background: rgb(255, 0, 0);
+  font-size: 1.3rem;
+}

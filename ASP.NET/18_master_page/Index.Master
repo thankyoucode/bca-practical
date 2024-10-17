@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <a href="/Home.aspx">Home</a>
+        <a href="/About.aspx">About</a>
+    </header>
+    <main>
+    <asp:ContentPlaceHolder ID="Main" runat="server">
+    </asp:ContentPlaceHolder>
+    </main>
+    <footer>
+        &copy; freeCodeCamp.org All rights reserved 2024
+    </footer>
+</body>
+</html>
