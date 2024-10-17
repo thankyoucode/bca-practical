@@ -3,11 +3,11 @@
 #include<stdbool.h>
 
 typedef struct Queue {
-    int size, f, r, * arr;
+    int size, next, previous, * arr;
 }QUEUE;
 
 typedef struct Node {
-    int v;
+    int vertices;
     struct Node* next;
 }NODE;
 
@@ -20,38 +20,38 @@ GRAPH graph;
 QUEUE q;
 
 int isEmpty(QUEUE* queue) {
-    if (queue->r == queue->f) { return 1; }
+    if (queue->previous == queue->next) { return 1; }
     return 0;
 }
 
 int isFull(QUEUE* queue) {
-    if (queue->r == queue->size - 1) { return 1; }
+    if (queue->previous == queue->size - 1) { return 1; }
     return 0;
 }
 
-void enqueue(QUEUE* queue, int val) {
+void enqueue(QUEUE* queue, int value) {
     if (isFull(queue))
         printf("This Queue is full\n");
     else
-        queue->arr[queue->r++] = val;
+        queue->arr[queue->previous++] = value;
 }
 
 int dequeue(QUEUE* queue) {
-    int delval = -1;
+    int delvalue = -1;
     if (isEmpty(queue))
         printf("This Queue is empty\n");
     else
-        delval = queue->arr[queue->f++];
-    return delval;
+        delvalue = queue->arr[queue->next++];
+    return delvalue;
 }
 
 void add(int source, int destination) {
     NODE* node, * newnode;
     newnode = (NODE*)malloc(sizeof(NODE));
-    newnode->v = -1;
+    newnode->vertices = -1;
     node = &graph.adj[source];
-    for (; node->v != -1; node = node->next);
-    node->v = destination;
+    for (; node->vertices != -1; node = node->next);
+    node->vertices = destination;
     node->next = newnode;
 }
 
@@ -63,7 +63,7 @@ void addEdge(int source, int destination) {
 int bfs(int source, int destination) {
     bool vis[graph.size];
     int parent[graph.size];
-    int neighbar, cur, distance = -1;
+    int neighbar, current, distance = -1;
     NODE* node;
 
     for (int i = 0; i < graph.size; i++) {
@@ -75,37 +75,38 @@ int bfs(int source, int destination) {
     vis[source] = true;
 
     while (!isEmpty(&q)) {
-        cur = dequeue(&q);
-        if (cur == destination) break;
-        for (node = &graph.adj[cur]; node->v != -1;node = node->next) {
-            if (!vis[neighbar = node->v]) {
+        current = dequeue(&q);
+        if (current == destination) break;
+        for (node = &graph.adj[current]; node->vertices != -1;node = node->next) {
+            if (!vis[neighbar = node->vertices]) {
                 enqueue(&q, neighbar);
                 vis[neighbar] = true;
-                parent[neighbar] = cur;
+                parent[neighbar] = current;
             }
         }
     }
 
-    if (cur == destination) {
-        cur = destination;
+    if (current == destination) {
+        current = destination;
         distance = 0;
-        while (parent[cur] != -1) {
-            printf("%d -> ", cur);
-            cur = parent[cur];
+        while (parent[current] != -1) {
+            printf("%d -> ", current);
+            current = parent[current];
             distance++;
         }
-        printf("%d", cur);
+        printf("%d", current);
     }
     return distance;
 }
 
-bool dfsUtil(int source, int destination, bool vis[Graph.size]) {
-    int neighbar, cur;
+bool dfsUtil(int source, int destination, bool vis[]) {
+    int neighbar;
     NODE* node;
     if (source == destination) return true;
 
-    for (node = &graph.adj[source]; node->v != -1;node = node->next) {
-        if (!vis[neighbar = node->v]) {
+    for (node = &graph.adj[source]; node->vertices != -1;node = node->next) {
+        neighbar = node->vertices;
+        if (!vis[neighbar]) {
             vis[neighbar] = true;
             bool isConnected = dfsUtil(neighbar, destination, vis);
             if (isConnected) return true;
@@ -126,37 +127,38 @@ bool dfs(int source, int destination) {
 
 
 int main() {
-    int v, e, source, destination;
+    int vertices, edges, source, destination;
     NODE* node;
 
 
     // Inilialising Queue (Array Implementation)
     printf("Enter number of vertices and edges \n");
-    scanf("%d", &v);
-    scanf("%d", &e);
+    scanf("%d", &vertices);
+    scanf("%d", &edges);
 
-    graph.size = v;
+    graph.size = vertices;
     graph.adj = (NODE*)malloc(graph.size * sizeof(NODE));
 
-    for (int i = 0; i < v; i++) {
-        graph.adj[i].v = -1;
+    for (int i = 0; i < vertices; i++) {
+        graph.adj[i].vertices = -1;
     }
 
-    q.size = v + 1;
-    q.f = q.r = 0;
+    q.size = vertices + 1;
+    q.next = q.previous = 0;
     q.arr = (int*)malloc(q.size * sizeof(int));
 
-    printf("Enter %d edges\n", e);
-    for (int i = 0; i < e; i++) {
+    printf("Enter %d edges\n", edges);
+    for (int i = 0; i < edges; i++) {
         scanf("%d", &source);
         scanf("%d", &destination);
         addEdge(source, destination);
     }
 
-    for (int i = 0; i < v; i++) {
+    printf("\n");
+    for (int i = 0; i < vertices; i++) {
         printf("%d-> ", i);
-        for (node = &graph.adj[i]; node->v != -1; node = node->next) {
-            printf("%d\t", node->v);
+        for (node = &graph.adj[i]; node->vertices != -1; node = node->next) {
+            printf("%d\t", node->vertices);
         }
         printf("\n");
     }
@@ -177,7 +179,7 @@ int main() {
 }
 
 /*
-Enter number of vertices and edges
+Enter number of vertices and edges 
 7 10
 Enter 10 edges
 0 1
@@ -190,5 +192,15 @@ Enter 10 edges
 3 4
 4 5
 4 6
+
+0-> 1   2       3
+1-> 0   2       3
+2-> 0   1       3       4
+3-> 0   1       2       4
+4-> 2   3       5       6
+5-> 4
+6-> 4
 Enter Source and Destination
-0 4     */
+0 4
+4 -> 2 -> 0
+path step: 2                        */
