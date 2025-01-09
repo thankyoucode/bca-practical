@@ -2,7 +2,8 @@
 
 Welcome to my BCA practical code repository! This repository contains various practical projects and code snippets covering the following topics:
 
-- [BCA Practical Code Repository](#bca-practical-code-repository)
+- BCA Practical Code Repository
+  - [Python](#python)
   - [ASP.NET](#aspnet)
   - [OOP with CPP](#oop-with-cpp)
   - [Data Structures and Algorithms (DSA)](#data-structures-and-algorithms-dsa)
@@ -11,6 +12,39 @@ Welcome to my BCA practical code repository! This repository contains various pr
   - [SQL](#sql)
   - [Contributing](#contributing)
   - [License](#license)
+
+## Python
+
+This section contains various Python projects and examples:
+
+- [01_hello_python.py](Python/01_hello_python.py)
+- [02_swap_two_numbers.py](Python/02_swap_two_numbers.py)
+- [03_fibonacci_series.py](Python/03_fibonacci_series.py)
+- [04_sum_number_digit.py](Python/04_sum_number_digit.py)
+- [04_sum_numbers_list.py](Python/04_sum_numbers_list.py)
+- [05_prime_number.py](Python/05_prime_number.py)
+- [06_armstrong.py](Python/06_armstrong.py)
+- [07_range.py](Python/07_range.py)
+- [08_area_of_circle.py](Python/08_area_of_circle.py)
+- [09_factorial_series.py](Python/09_factorial_series.py)
+- [10_is_palindrome_n.py](Python/10_is_palindrome_n.py)
+- [11_ascending_descending_numbers.py](Python/11_ascending_descending_numbers.py)
+- [12_duplicate_elements_in_array.py](Python/12_duplicate_elements_in_array.py)
+- [13_function.py](Python/13_function.py)
+- [14_lambda.py](Python/14_lambda.py)
+- [15_module.py](Python/15_module.py)
+- [16_pattern.py](Python/16_pattern.py)
+- [17_list.py](Python/17_list.py)
+- [18_tuple.py](Python/18_tuple.py)
+- [19_nested_list.py](Python/19_nested_list.py)
+- [20_multiple_inheritance.py](Python/20_multiple_inheritance.py)
+- [21_file_reading.py](Python/21_file_reading.py)
+- [22_error_handling.py](Python/22_error_handling.py)
+- [23_mysql_database.py](Python/23_mysql_database.py)
+- [24_select_update_delete_database.py](Python/24_select_update_delete_database.py)
+- [25_search_database.py](Python/25_search_database.py)
+- [Python & MySQL for Database Operation.html](Python/Python%20&%20MySQL%20for%20Database%20Operation.html)
+- [Python & MySQL for Database Operation.ipynb](Python/Python%20&%20MySQL%20for%20Database%20Operation.ipynb)
 
 ## ASP.NET
 
@@ -84,7 +118,7 @@ This section contains C++ and Object-Oriented Programming projects:
 
 ## Data Structures and Algorithms (DSA)
 
-This section contains various DSA implementations:
+This section contains various DSA implementations in C:
 
 - [01_linear_search.c](DSA/01_linear_search.c)
 - [02_binary_search.c](DSA/02_binary_search.c)
@@ -109,7 +143,7 @@ This section contains various DSA implementations:
 
 ## Java
 
-This section contains Java projects:
+This section contains Java basic concept:
 
 - [01_area_of_circle](JAVA/01_area_of_circle)
 - [02_factorial](JAVA/02_factorial)
@@ -163,7 +197,7 @@ This section contains Java projects:
 
 ## PHP
 
-This section contains PHP projects and scripts:
+This section contains PHP projects that explain how PHP use in web with simple approach:
 
 - [01_helloworld.php](PHP/01_helloworld.php)
 - [02_datatime.php](PHP/02_datatime.php)
@@ -253,4 +287,3 @@ If you would like to contribute to this repository, feel free to open an issue o
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
