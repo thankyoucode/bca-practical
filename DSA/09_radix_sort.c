@@ -1,5 +1,3 @@
-// 08. Write a c program for sorting using merge sort method.
-
 #include<stdio.h>
 #include<math.h>
 #define N 10
